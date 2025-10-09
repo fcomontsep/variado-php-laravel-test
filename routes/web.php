@@ -21,6 +21,10 @@ Route::get('prueba', function(){
 	return $post;
 });
 
+Route::get('/default', function () {
+    return view('welcome');
+});
+
 
 /*
 Route::get('/', function () {
