@@ -33,8 +33,23 @@ new class extends Component
                     <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('bienvenida')" wire:navigate>
                         {{ __('Bienvenida') }}
                     </x-nav-link>
+
+                    @if (Auth::check() && Auth::user()->tipo === 'Administrador')
+                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('admin')" wire:navigate>
+                            {{ __('Panel de Administración') }}
+                        </x-nav-link>
+                    @endif
+
+                    @if (Auth::check() && Auth::user()->tipo === 'Cliente')
+                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('productos')" wire:navigate>
+                            {{ __('Productos a la Venta') }}
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('ventas')" wire:navigate>
+                            {{ __('Listado de Ventas') }}
+                        </x-nav-link>
+                    @endif
                 </div>
-            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -84,6 +99,22 @@ new class extends Component
             <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('bienvenida')" wire:navigate>
                 {{ __('Bienvenida') }}
             </x-responsive-nav-link>
+
+            @if(Auth::check() && Auth::user()->tipo === 'Administrador')
+                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('admin')" wire:navigate>
+                    {{ __('Panel de Administración') }}
+                </x-responsive-nav-link>
+            @endif
+
+            @if(Auth::check() && Auth::user()->tipo === 'Cliente')
+                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('productos')" wire:navigate>
+                    {{ __('Productos a la Venta') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('ventas')" wire:navigate>
+                    {{ __('Listado de Ventas') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
