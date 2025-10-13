@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
+Route::view('bienvenida', 'bienvenida')
     ->middleware(['auth', 'verified', 'revisa.tipo'])
-    ->name('dashboard');
+    ->name('bienvenida');
 
 Route::view('profile', 'profile')
     ->middleware(['auth', 'revisa.tipo'])
