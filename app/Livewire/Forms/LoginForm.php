@@ -30,7 +30,18 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
+        /*
         if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'form.email' => trans('auth.failed'),
+            ]);
+        }*/
+
+        $user = \App\Models\User::where('email', $this->email)->first();
+
+        if (! $user || ! $user->activo || ! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
