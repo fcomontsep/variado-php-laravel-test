@@ -1,39 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
-use App\Models\Post;
 
-Route::get('/', [HomeController::class, 'mostrar']);
+Route::view('/', 'welcome');
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class, 'crear']);
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
-Route::get('prueba', function(){
-	$post = new Post;
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
 
-	$post->title = 'Título de prueba 2';
-	$post->content = 'Categoría de prueba 2';
-
-	$post->save();
-
-	return $post;
-});
-
-Route::get('/default', function () {
-    return view('welcome');
-});
-
-
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-/*
-Route::get('/posts/{post}', function($post){
-	return "Aquí se mostrará el post {$post}";
-});
-*/
+require __DIR__.'/auth.php';
