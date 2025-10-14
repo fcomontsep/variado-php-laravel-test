@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'revisa.tipo' => \App\Http\Middleware\AseguraUsuarioActivo::class,
+            'revisa.activo' => \App\Http\Middleware\AseguraUsuarioActivo::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

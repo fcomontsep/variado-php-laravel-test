@@ -19,7 +19,7 @@ class AseguraUsuarioActivo
             $request->session()->regenerateToken();
 
             return redirect()->route('login')->withErrors([
-                'tipo' => 'Tu cuenta ha sido desactivada o modificada.',
+                'activo' => 'Tu cuenta ha sido desactivada o modificada.',
             ]);
         }
 
