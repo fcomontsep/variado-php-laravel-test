@@ -23,6 +23,7 @@ Repositorio experimental para probar una instalación de PHP Laravel con Tailwin
 - Laravel (instalado vía ``laravel new``)
 - Tailwind CSS (compilado con CLI)
 - Flowbite (JS + componentes)
+- Breeze (autenticación básica con Laravel)
 
 <hr>
 
@@ -39,15 +40,21 @@ cd variado-php-laravel-test
 composer install
 ```
 
-### 3. Configuración local de prueba (Apache + hosts)
+### 3. Instalación de Breeze (Livewire Volt Class API Alpine)
+```bash
+composer require laravel/breeze --dev
+php artisan breeze:install
+```
+
+### 4. Configuración local de prueba (Apache + hosts)
 Agrega esta línea al archivo C:\Windows\System32\drivers\etc\hosts:
 ```bash
-127.0.0.1 blog.test
+127.0.0.1 marketplace.test
 ```
 Requerirás un VirtualHost en Apache (por ejemplo, si lo estás utilizando vía XAMPP). <br>Puedes utilizar la siguiente configuración:
 ```bash
 <VirtualHost *:80>
-    ServerName blog.test
+    ServerName marketplace.test
     DocumentRoot "C:/Ruta/Al/Repositorio/Public"
 
     <Directory "C:/Ruta/Al/Repositorio/Public">
