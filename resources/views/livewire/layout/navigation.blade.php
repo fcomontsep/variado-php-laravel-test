@@ -35,7 +35,7 @@ new class extends Component
                     </x-nav-link>
 
                     @if (Auth::check() && Auth::user()->tipo === 'Administrador')
-                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('admin')" wire:navigate>
+                        <x-nav-link :href="route('administracion')" :active="request()->routeIs('administracion')" wire:navigate>
                             {{ __('Panel de Administración') }}
                         </x-nav-link>
                     @endif
@@ -101,7 +101,7 @@ new class extends Component
             </x-responsive-nav-link>
 
             @if(Auth::check() && Auth::user()->tipo === 'Administrador')
-                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('admin')" wire:navigate>
+                <x-responsive-nav-link :href="route('administracion')" :active="request()->routeIs('administracion')" wire:navigate>
                     {{ __('Panel de Administración') }}
                 </x-responsive-nav-link>
             @endif

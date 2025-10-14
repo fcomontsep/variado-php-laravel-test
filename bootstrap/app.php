@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'revisa.activo' => \App\Http\Middleware\AseguraUsuarioActivo::class,
+            'revisa.admin' => \App\Http\Middleware\AseguraUsuarioAdmin::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

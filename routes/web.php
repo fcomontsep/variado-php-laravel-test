@@ -9,7 +9,7 @@ Route::view('bienvenida', 'bienvenida')
     ->name('bienvenida');
     
 Route::view('administracion', 'administracion')
-    ->middleware(['auth', 'verified', 'revisa.tipo'])
+    ->middleware(['auth', 'verified', 'revisa.admin'])
     ->name('administracion');
 
 Route::view('profile', 'profile')
