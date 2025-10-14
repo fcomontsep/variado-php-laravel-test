@@ -41,11 +41,11 @@ new class extends Component
                     @endif
 
                     @if (Auth::check() && Auth::user()->tipo === 'Cliente')
-                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('productos')" wire:navigate>
+                        <x-nav-link :href="route('productos')" :active="request()->routeIs('productos')" wire:navigate>
                             {{ __('Productos a la Venta') }}
                         </x-nav-link>
 
-                        <x-nav-link :href="route('bienvenida')" :active="request()->routeIs('ventas')" wire:navigate>
+                        <x-nav-link :href="route('ventas')" :active="request()->routeIs('ventas')" wire:navigate>
                             {{ __('Listado de Ventas') }}
                         </x-nav-link>
                     @endif
@@ -107,11 +107,11 @@ new class extends Component
             @endif
 
             @if(Auth::check() && Auth::user()->tipo === 'Cliente')
-                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('productos')" wire:navigate>
+                <x-responsive-nav-link :href="route('productos')" :active="request()->routeIs('productos')" wire:navigate>
                     {{ __('Productos a la Venta') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('bienvenida')" :active="request()->routeIs('ventas')" wire:navigate>
+                <x-responsive-nav-link :href="route('ventas')" :active="request()->routeIs('ventas')" wire:navigate>
                     {{ __('Listado de Ventas') }}
                 </x-responsive-nav-link>
             @endif

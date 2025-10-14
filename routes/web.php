@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdministracionController;
 use App\Http\Controllers\ClienteVentaController;
+use App\Http\Controllers\ClienteProductoController;
 
 require __DIR__.'/auth.php';
 
@@ -22,4 +23,12 @@ Route::view('profile', 'profile')
 
 Route::get('ventas', [ClienteVentaController::class, 'index'])
     ->middleware(['auth', 'verified', 'revisa.cliente'])
-    ->name('ventas.cliente');
+    ->name('ventas');
+
+Route::get('productos', [ClienteProductoController::class, 'index'])
+    ->middleware(['auth', 'verified', 'revisa.cliente'])
+    ->name('productos');
+
+Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::class, 'detalle'])
+    ->middleware(['auth', 'verified', 'revisa.cliente'])
+    ->name('productos.detalle');
