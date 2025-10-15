@@ -32,3 +32,10 @@ Route::get('productos', [ClienteProductoController::class, 'index'])
 Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::class, 'detalle'])
     ->middleware(['auth', 'verified', 'revisa.cliente'])
     ->name('productos.detalle');
+
+// Rutas temporales para probar durante el desarrollo...
+
+
+Route::get('/test/sidebar', function () {
+    return view('test.sidebar');
+})->name('test.sidebar');
