@@ -38,7 +38,7 @@
                                     </path>
                                 </svg>
                             </button>
-                            <a href="https://flowbite.com" class="flex ms-2 md:me-24">
+                            <a href="{{ route('bienvenida') }}" class="flex ms-2 md:me-24">
                                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3"
                                     alt="FlowBite Logo" />
                                 <span

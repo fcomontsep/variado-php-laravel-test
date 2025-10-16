@@ -19,7 +19,7 @@ new class extends Component {
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end sm:ms-0 ms-10">
-                <a href="https://flowbite.com" class="flex ms-2 md:me-24">
+                <a href="{{ route('bienvenida') }}" class="flex ms-2 md:me-24">
                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
                     <span
                         class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Sistema
