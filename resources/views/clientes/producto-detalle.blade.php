@@ -1,32 +1,45 @@
 <x-app-layout>
     <div class="p-4 pt-20 sm:ml-64">
-
-    <div class="space-y-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
-
         {{-- Datos del producto --}}
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900 dark:text-gray-100">
-            <h3 class="text-lg font-bold mb-4">Información del producto</h3>
-            <p><strong>ID:</strong> {{ $producto->id }}</p>
-            <p><strong>Nombre:</strong> {{ $producto->nombre }}</p>
-            <p><strong>Precio:</strong> ${{ number_format($producto->precio, 0, ',', '.') }}</p>
-        </div>
 
-        {{-- Ventas asociadas --}}
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900 dark:text-gray-100">
-            <h3 class="text-lg font-bold mb-4">Ventas de este producto</h3>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6 pb-12">
+            <div
+                class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900 dark:text-gray-100 mb-12">
+                <h3 class="text-lg font-bold mb-4">Información del producto</h3>
+                <p><strong>ID:</strong> {{ $producto->id }}</p>
+                <p><strong>Nombre:</strong> {{ $producto->nombre }}</p>
+                <p><strong>Precio:</strong> ${{ number_format($producto->precio, 0, ',', '.') }}</p>
+            </div>
+            <div class="overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <caption
+                        class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                        Ventas Realizadas de este Producto
+                    </caption>
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">ID</th>
+                            <th scope="col" class="px-6 py-3">Unidades Vendidas</th>
+                            <th scope="col" class="px-6 py-3">Costo Total</th>
+                            <th scope="col" class="px-6 py-3">Fecha de Transacción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            @forelse ($producto->ventas as $venta)
-                <div>
-                    <br>
-                    <p><strong>ID Venta:</strong> {{ $venta->id }}</p>
-                    <p><strong>Unidades compradas:</strong> {{ $venta->total_unidades }}</p>
-                    <p><strong>Total:</strong> ${{ number_format($venta->total_costo, 0, ',', '.') }}</p>
-                    <p><strong>Fecha de transacción:</strong> {{ $venta->created_at->format('d/m/Y H:i') }}</p>
-                </div>
-            @empty
-                <p>No hay ventas registradas para este producto.</p>
-            @endforelse
+                        @foreach ($producto->ventas as $venta)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $venta->id }}
+                                </th>
+                                <td class="px-6 py-4">{{ $venta->total_unidades }}</td>
+                                <td class="px-6 py-4">${{ number_format($venta->total_costo, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4">{{ $venta->created_at->format('d/m/Y H:i') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 </x-app-layout>
