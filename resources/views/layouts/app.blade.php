@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div x-data="{ sidebarOpen: false }" class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <livewire:layout.navigation />
 
             <!-- Page Heading -->
@@ -29,6 +29,10 @@
 
             <!-- Page Content -->
             <main>
+                {{-- Mostrar sidebar solo si no es profile --}}
+                @if (!request()->routeIs('profile'))
+                    <livewire:layout.sidebar />
+                @endif
                 {{ $slot }}
             </main>
         </div>
