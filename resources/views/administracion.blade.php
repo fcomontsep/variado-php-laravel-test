@@ -106,7 +106,7 @@
                             <th scope="col" class="px-6 py-3">ID</th>
                             <th scope="col" class="px-6 py-3">Producto</th>
                             <th scope="col" class="px-6 py-3">Vendedor</th>
-                            <th scope="col" class="px-6 py-3">Unidades Compradas</th>
+                            <th scope="col" class="px-6 py-3">Unidades Vendidas</th>
                             <th scope="col" class="px-6 py-3">Costo Total</th>
                             <th scope="col" class="px-6 py-3">Fecha de Transacción</th>
                         </tr>
