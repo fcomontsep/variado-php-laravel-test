@@ -43,7 +43,7 @@
                                     alt="FlowBite Logo" />
                                 <span
                                     class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Sistema
-                                    Integrado Marketplace</span>
+                                    Integrado Marketplace (VERSION DE PRUEBA)</span>
                             </a>
                         </div>
                         <div class="flex items-center">
@@ -155,7 +155,7 @@
                 </div>
             </aside>
 
-            <div class="p-4 sm:ml-64">
+            <div class="p-4 pt-20 sm:ml-64">
 
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
