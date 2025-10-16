@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Ventas')
     <div class="p-4 pt-20 sm:ml-64">
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6 pb-12">

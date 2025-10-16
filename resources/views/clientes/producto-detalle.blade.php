@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Detalles')
     <div class="p-4 pt-20 sm:ml-64">
         {{-- Datos del producto --}}
 
