@@ -12,7 +12,7 @@ class ClienteProductoController extends Controller
         $user = Auth::user();
 
         $productos = Producto::where('user_id', $user->id)
-            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->get();
 
         return view('clientes.productos', compact('productos'));
@@ -24,7 +24,12 @@ class ClienteProductoController extends Controller
 
         $producto = Producto::where('id', $productoId)
             ->where('user_id', $userId)
-            ->with('user', 'ventas')
+            ->with([
+            'user',
+            'ventas' => function ($query) {
+                $query->orderByDesc('id');
+            }
+        ])
             ->first();
 
         if (! $producto || $producto->user_id !== $user->id) {

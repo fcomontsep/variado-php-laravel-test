@@ -13,7 +13,7 @@ class ClienteVentaController extends Controller
                 $query->where('user_id', $user->id);
             })
             ->with('producto.user')
-            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->get();
 
         return view('clientes.ventas', compact('ventas'));
