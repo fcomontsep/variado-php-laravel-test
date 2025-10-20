@@ -14,6 +14,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="{{ asset('js/colores-cambio.js') }}"></script>
     </head>
     <body class="font-sans antialiased">
         <div x-data="{ sidebarOpen: false }" class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -37,5 +38,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="{{ asset('js/colores-click.js') }}"></script>
     </body>
 </html>
