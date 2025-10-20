@@ -37,6 +37,7 @@ Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::cl
 use App\Http\Controllers\ClimaController;
 
 Route::get('/apis/externa-clima', [ClimaController::class, 'mostrar'])->name('apis.externa-clima');
+Route::post('/apis/externa-clima', [ClimaController::class, 'consultar'])->name('apis.externa-clima.consultar');
 
 Route::get('/test/sidebar', function () {
     return view('test.sidebar');

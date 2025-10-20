@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class ClimaController extends Controller
 {
     public function mostrar()
     {
-        $ciudad = 'Santiago,cl';
+        return view('apis.externa-clima');
+    }
+
+    public function consultar(Request $request)
+    {
+        $request->validate([
+            'ciudad' => 'required|string|max:100',
+        ]);
+
+        $ciudad = $request->input('ciudad');
         $apiKey = env('OPENWEATHER_API_KEY');
 
         $response = Http::get("https://api.openweathermap.org/data/2.5/weather", [
@@ -20,9 +30,9 @@ class ClimaController extends Controller
 
         if ($response->successful()) {
             $datos = $response->json();
-            return view('apis.externa-clima', compact('datos'));
+            return view('apis.externa-clima', compact('datos', 'ciudad'));
         } else {
-            return view('apis.externa-clima')->withErrors(['error' => 'No se pudo obtener el clima']);
+            return back()->withErrors(['error' => 'No se pudo obtener el clima para esa ciudad.']);
         }
     }
 }
