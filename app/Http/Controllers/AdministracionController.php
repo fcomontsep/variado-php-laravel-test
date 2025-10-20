@@ -11,7 +11,7 @@ class AdministracionController extends Controller
     {
         $usuarios = User::orderByDesc('id')->get();
         $productos = Producto::with('user')->orderByDesc('id')->get();
-        $ventas = Venta::with('producto.user')->orderByDesc('id')->get();
+        $ventas = Venta::with('producto.user')->orderByDesc('id')->paginate(5);
 
         return view('administracion', compact('usuarios', 'productos', 'ventas'));
     }
