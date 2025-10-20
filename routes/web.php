@@ -34,7 +34,9 @@ Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::cl
     ->name('productos.detalle');
 
 // Rutas temporales para probar durante el desarrollo...
+use App\Http\Controllers\ClimaController;
 
+Route::get('/apis/externa-clima', [ClimaController::class, 'mostrar'])->name('apis.externa-clima');
 
 Route::get('/test/sidebar', function () {
     return view('test.sidebar');
