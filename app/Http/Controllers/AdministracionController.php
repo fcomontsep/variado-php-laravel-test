@@ -9,9 +9,10 @@ class AdministracionController extends Controller
 {
     public function index()
     {
-        $usuarios = User::orderByDesc('id')->get();
-        $productos = Producto::with('user')->orderByDesc('id')->get();
-        $ventas = Venta::with('producto.user')->orderByDesc('id')->paginate(5);
+        $usuarios = User::orderByDesc('id')->paginate(5, ['*'], 'usuarios');
+        $productos = Producto::with('user')->orderByDesc('id')->paginate(5, ['*'], 'productos');
+        $ventas = Venta::with('producto.user')->orderByDesc('id')->paginate(5, ['*'], 'ventas');
+
 
         return view('administracion', compact('usuarios', 'productos', 'ventas'));
     }

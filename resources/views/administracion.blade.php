@@ -50,6 +50,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mt-6">
+                    {{ $usuarios->links() }}
+                </div>
             </div>
         </div>
 
@@ -87,6 +90,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mt-6">
+                    {{ $productos->links() }}
+                </div>
             </div>
         </div>
 
