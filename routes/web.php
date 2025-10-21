@@ -33,12 +33,12 @@ Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::cl
     ->middleware(['auth', 'verified', 'revisa.cliente'])
     ->name('productos.detalle');
 
-// Rutas temporales para probar durante el desarrollo...
 use App\Http\Controllers\ClimaController;
 
 Route::get('/apis/externa-clima', [ClimaController::class, 'mostrar'])->name('apis.externa-clima');
 Route::post('/apis/externa-clima', [ClimaController::class, 'consultar'])->name('apis.externa-clima.consultar');
 
-Route::get('/test/sidebar', function () {
-    return view('test.sidebar');
-})->name('test.sidebar');
+use App\Http\Controllers\UsuarioApiController;
+
+Route::get('/apis/interna-usuarios', [UsuarioApiController::class, 'mostrar'])->name('apis.interna-usuarios');
+Route::post('/apis/interna-usuarios', [UsuarioApiController::class, 'consultar'])->name('apis.interna-usuarios.consultar');
