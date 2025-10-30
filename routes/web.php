@@ -42,3 +42,7 @@ use App\Http\Controllers\UsuarioApiController;
 
 Route::get('/apis/interna-usuarios', [UsuarioApiController::class, 'mostrar'])->name('apis.interna-usuarios');
 Route::post('/apis/interna-usuarios', [UsuarioApiController::class, 'consultar'])->name('apis.interna-usuarios.consultar');
+
+use App\Http\Controllers\FakeStoreController;
+
+Route::get('/apis/fake-store', [FakeStoreController::class, 'index'])->name('apis.fake-store');
