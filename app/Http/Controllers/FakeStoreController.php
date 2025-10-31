@@ -12,9 +12,9 @@ class FakeStoreController extends Controller
 
         if ($response->successful()) {
             $productos = $response->json();
-            return view('apis.fake-store', compact('productos'));
+            return view('apis.externa-store', compact('productos'));
         }
 
-        return view('apis.fake-store')->withErrors(['error' => 'No se pudo obtener la lista de productos.']);
+        return view('apis.externa-store')->withErrors(['error' => 'No se pudo obtener la lista de productos.']);
     }
 }
