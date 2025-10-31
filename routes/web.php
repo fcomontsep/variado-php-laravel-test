@@ -35,14 +35,19 @@ Route::get('productos/{user}/{producto}/detalle', [ClienteProductoController::cl
 
 use App\Http\Controllers\ClimaController;
 
-Route::get('/apis/externa-clima', [ClimaController::class, 'mostrar'])->name('apis.externa-clima');
-Route::post('/apis/externa-clima', [ClimaController::class, 'consultar'])->name('apis.externa-clima.consultar');
+Route::get('/apis/externa-clima', [ClimaController::class, 'mostrar'])->name('apis.externa-clima')
+    ->middleware(['auth', 'verified', 'revisa.admin']);
+Route::post('/apis/externa-clima', [ClimaController::class, 'consultar'])->name('apis.externa-clima.consultar')
+    ->middleware(['auth', 'verified', 'revisa.admin']);
 
 use App\Http\Controllers\UsuarioApiController;
 
-Route::get('/apis/interna-usuarios', [UsuarioApiController::class, 'mostrar'])->name('apis.interna-usuarios');
-Route::post('/apis/interna-usuarios', [UsuarioApiController::class, 'consultar'])->name('apis.interna-usuarios.consultar');
+Route::get('/apis/interna-usuarios', [UsuarioApiController::class, 'mostrar'])->name('apis.interna-usuarios')
+    ->middleware(['auth', 'verified', 'revisa.admin']);
+Route::post('/apis/interna-usuarios', [UsuarioApiController::class, 'consultar'])->name('apis.interna-usuarios.consultar')
+    ->middleware(['auth', 'verified', 'revisa.admin']);
 
 use App\Http\Controllers\FakeStoreController;
 
-Route::get('/apis/externa-store', [FakeStoreController::class, 'index'])->name('apis.externa-store');
+Route::get('/apis/externa-store', [FakeStoreController::class, 'index'])->name('apis.externa-store')
+    ->middleware(['auth', 'verified', 'revisa.admin']);
