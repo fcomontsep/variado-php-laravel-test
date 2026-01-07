@@ -1,4 +1,4 @@
-# Sistema Laravel + Tailwind + Flowbite
+# Sistema Laravel + Tailwind
 Repositorio experimental para probar una instalación de PHP Laravel con Tailwind CSS, sin Starter Kit.<br>Este repositorio se encuentra en desarrollo y no está desplegado.
 
 <hr>
